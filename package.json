@@ -1,5 +1,5 @@
 {
-  "main": "./dist/mpu.mjs",
+  "main": "./src/mpu.mjs",
   "type": "module",
   "scripts": {
     "start": "node --no-expose-wasm ./src/mpu.mjs",
