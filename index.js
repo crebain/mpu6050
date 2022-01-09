@@ -36,7 +36,7 @@ function main() {
         console.log(data);
       }
   });
-  interruptMonitor.on('error', (error: Error) => {
+  interruptMonitor.on('error', error => {
     console.log('Data error:', error.message);
   });
   interruptMonitor.start();
