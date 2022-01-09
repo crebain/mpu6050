@@ -1,5 +1,5 @@
 {
-  "main": "./src/mpu.mjs",
+  "main": "./src/example.mjs",
   "type": "module",
   "scripts": {
     "start": "sudo node --no-expose-wasm .",

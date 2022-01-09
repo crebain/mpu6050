@@ -7,6 +7,46 @@ console.log('User: ', process.env.USER);
 const userInfo = os.userInfo();
 console.log('User ID: ', userInfo.uid);
 
+const gravity = {
+  x: 0.0,
+  y: 0.0,
+  z: 0.0,
+};
+
+const velocity = {
+  x: 0.0,
+  y: 0.0,
+  z: 0.0,
+};
+
+const position = {
+  x: 0.0,
+  y: 0.0,
+  z: 0.0,
+};
+
+function low_pass(accel) {
+  const alpha = 0.8;
+
+  gravity.x = alpha * gravity.x + (1 - alpha) * accel.x;
+  gravity.y = alpha * gravity.y + (1 - alpha) * accel.y;
+  gravity.z = alpha * gravity.z + (1 - alpha) * accel.z;
+
+  const values = {
+    x: accel.x - gravity.x,
+    y: accel.y - gravity.y,
+    z: accel.z - gravity.z,
+  };
+
+  return values;
+}
+
+function integrate_velocity(accel) {
+  
+}
+
+functon integrate_position(velocity) {
+}
 
 function main() {
   let interrupts = 0;
@@ -25,7 +65,7 @@ function main() {
 
   // calibrate sensors
   imu.calibrateAccel();
-  imu.calibrateGyro();
+//  imu.calibrateGyro();
   imu.printActiveOffsets();
 
   // setup interrupt
@@ -40,6 +80,8 @@ function main() {
       if (buf) {
         const data = imu.dmpGetMotionData(buf);
         console.log(data);
+        const filtered = low_pass(data.accel);
+        console.log({ filtered: filtered });
       }
   });
   interruptMonitor.on('error', error => {
