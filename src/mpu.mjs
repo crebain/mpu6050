@@ -17,7 +17,7 @@ function main() {
   console.log('MPU6050 Device')
   console.log('       connected: ', imu.testConnection());
   console.log('              id: ', imu.getDeviceID());
-  console.log('  temperature(F): ', Utils.celciusToF(imu.getTemperature()).toFixed(2));
+  console.log('  temperature(F): ', imu.getTemperature().toFixed(2));
   Utils.msleep(500);
 
   console.log('\nDMP initialize and calibrate...');
