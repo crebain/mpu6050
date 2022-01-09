@@ -1,6 +1,12 @@
 import { InterruptMonitor, MPU6050, Utils } from "@ros2jsguy/mpu6050-motion-data";
+import * as os from 'os';
 
 const GPIO_MPU6050_DATA_PIN = 18;
+
+console.log('User: ', process.env.USER);
+const userInfo = os.userInfo();
+console.log('User ID: ', userInfo.uid);
+
 
 function main() {
   let interrupts = 0;
