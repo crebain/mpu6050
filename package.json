@@ -1,9 +1,8 @@
 {
-  "main": "index.js",
+  "main": "./dist/mpu.mjs",
   "type": "module",
   "scripts": {
-    "build": "tsc mpu.ts",
-    "start": "node --no-expose-wasm ./index.js",
+    "start": "node --no-expose-wasm ./src/mpu.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -14,8 +13,6 @@
   "name": "mpu6050",
   "version": "1.0.0",
   "devDependencies": {
-    "@types/node": "^17.0.8",
-    "typescript": "^4.5.4"
   },
   "author": "",
   "license": "ISC",
