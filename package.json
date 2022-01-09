@@ -1,7 +1,19 @@
 {
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --no-expose-wasm ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "@ros2jsguy/mpu6050-motion-data": "^0.2.1",
     "i2c-bus": "^5.2.2",
     "i2c-mpu6050": "^2.3.0"
-  }
+  },
+  "name": "mpu6050",
+  "version": "1.0.0",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
